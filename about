@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        /* Example styles (replace these with your main index.css styles if available) */
+        body {
+            font-family: Arial, sans-serif;
+            color: #333; /* Same font color as main page */
+            background-color: #f5f5f5; /* Same background color as main page */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0073e6; /* Similar header background color */
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        .content {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            color: #0073e6; /* Link color same as main page */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+    <div class="content">
+        <p>Welcome to the About Page of our website! Here, you can learn more about the purpose of this site and the team behind it.</p>
+        <p>We are committed to providing valuable content and resources to our visitors. If you'd like to know more, feel free to contact us.</p>
+        <p><a href="index.html">Go back to the Home Page</a></p>
+    </div>
+</body>
+</html>
