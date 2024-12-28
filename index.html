@@ -137,9 +137,9 @@ with us. Option of online & home session is available.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Mode Toggle</title>
+    <title>Dark Mode by Device Settings</title>
     <style>
-        /* Light mode styles */
+        /* Default light mode styles */
         body {
             font-family: Arial, sans-serif;
             background-color: white;
@@ -147,10 +147,21 @@ with us. Option of online & home session is available.
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Dark mode styles */
-        body.dark-mode {
-            background-color: #121212;
-            color: white;
+        /* Dark mode styles using prefers-color-scheme */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: white;
+            }
+
+            button {
+                background-color: #444;
+                color: white;
+            }
+
+            button:hover {
+                background-color: #666;
+            }
         }
 
         button {
@@ -169,27 +180,38 @@ with us. Option of online & home session is available.
     </style>
 </head>
 <body>
-    <button id="darkModeToggle">Dark Mode</button>
-    
+    <button id="modeToggle">Switch Mode</button>
+    <p>This page adapts to your device's dark or light mode settings!</p>
     <script>
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
+        const modeToggle = document.getElementById('modeToggle');
 
-        // Check if dark mode is saved in local storage
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            body.classList.add('dark-mode');
-        }
+        // Toggle between dark and light modes manually
+        modeToggle.addEventListener('click', () => {
+            const currentMode = localStorage.getItem('manualMode') || 'system';
+            const body = document.body;
 
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            // Save the mode to local storage
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
+            if (currentMode === 'system') {
+                // Force dark mode
+                body.classList.add('dark-mode');
+                localStorage.setItem('manualMode', 'dark');
+            } else if (currentMode === 'dark') {
+                // Force light mode
+                body.classList.remove('dark-mode');
+                localStorage.setItem('manualMode', 'light');
             } else {
-                localStorage.setItem('darkMode', 'disabled');
+                // Revert to system mode
+                localStorage.setItem('manualMode', 'system');
+                location.reload();
             }
         });
+
+        // Check for manual mode preference
+        const manualMode = localStorage.getItem('manualMode');
+        if (manualMode === 'dark') {
+            document.body.classList.add('dark-mode');
+        } else if (manualMode === 'light') {
+            document.body.classList.remove('dark-mode');
+        }
     </script>
 </body>
 </html>
-
