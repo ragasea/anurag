@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Feed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4267B2;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        .post-box {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .post-box textarea {
+            width: 100%;
+            border: none;
+            resize: none;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .post-box button {
+            background-color: #4267B2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .post-box button:hover {
+            background-color: #365899;
+        }
+
+        .feed {
+            margin-top: 20px;
+        }
+
+        .post {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .post h3 {
+            margin: 0 0 10px;
+        }
+
+        .post p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Feed</h1>
+    </header>
+    <main>
+        <!-- Post Box -->
+        <div class="post-box">
+            <textarea id="postContent" rows="3" placeholder="What's on your mind?"></textarea>
+            <button onclick="addPost()">Post</button>
+        </div>
+
+        <!-- Feed -->
+        <div class="feed" id="feed">
+            <!-- Posts will appear here -->
+        </div>
+    </main>
+
+    <script>
+        // Function to add a new post
+        function addPost() {
+            const postContent = document.getElementById('postContent').value;
+            if (postContent.trim() === '') {
+                alert('Post content cannot be empty!');
+                return;
+            }
+
+            // Create a new post element
+            const post = document.createElement('div');
+            post.className = 'post';
+            post.innerHTML = `
+                <h3>User</h3>
+                <p>${postContent}</p>
+            `;
+
+            // Append the post to the feed
+            const feed = document.getElementById('feed');
+            feed.prepend(post);
+
+            // Clear the text area
+            document.getElementById('postContent').value = '';
+        }
+    </script>
+</body>
+</html>
