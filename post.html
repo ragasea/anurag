@@ -48,3 +48,149 @@
 
     <!-- Header -->
     <header>
+        <h1>anurag</h1>
+        <p>Welcome to my personal website!</p>
+    </header>
+
+    
+
+    <!-- Content Sections -->
+    	<section id="latest">
+        <h2>Latest</h2>
+        <p>
+        	Blog 1
+             </p>
+                     <p>                2024-12-07 12:40
+
+</p>
+    </section>
+
+    <section id="tree">
+        <h2>Tree title</h2>
+        <p>
+        	blog on tree♟️
+
+</p>
+        <a href="https://wa.me/916283266268 " target="_blank">whatsapp +916283266268 </a>
+    </section>
+    
+    
+    
+    
+
+    <section id="yoga">
+        <h2>Yoga title 🧘🏻‍♀️</h2>
+        <p>blog on yoga  <a href="https://yogaanurag.blogspot.com" target="_blank">yoga</a> & meditation sessions. Option of online, offline & group sessions is available.
+            
+         </p>
+    </section>
+    
+    <smm
+
+    <section id="links">
+        <h2>Links</h2>
+        <p>You can follow us on social media.
+            href="https://m.youtube.com/@yo
+    <p> Or visit other pages of this website
+<a href="about.html" target="_blank">about, </a>
+<a href="page.html" target="_blank">page, </a>   </a>
+<a href="links.html" target="_blank">links,</a>     
+    <a href="feed.html" target="_blank">feed,</a>
+        <a href="site.html" target="_blank">site,</a>
+        <a href="tabs.html" target="_blank">tabs.</a>
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 @yogaanurag. All rights reserved.</p>
+    </footer>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode with Device Settings and Toggle</title>
+    <style>
+        /* Default light mode styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark mode styles using prefers-color-scheme */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: white;
+            }
+        }
+
+        /* Button styles */
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Force dark mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+
+        /* Force light mode */
+        body.light-mode {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <button id="modeToggle">Switch Mode</button>
+
+    <script>
+        const modeToggle = document.getElementById('modeToggle');
+        const body = document.body;
+
+        // Check if user preference is saved in localStorage
+        const savedMode = localStorage.getItem('mode');
+        if (savedMode) {
+            body.classList.add(savedMode);
+        } else {
+            // Respect system settings by default
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                body.classList.add('dark-mode');
+            }
+        }
+
+        // Toggle between dark and light modes
+        modeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('mode', 'light-mode');
+            } else if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('mode', 'dark-mode');
+            } else {
+                body.classList.add('dark-mode');
+                localStorage.setItem('mode', 'dark-mode');
+            }
+        });
+    </script>
+</body>
+</html>
